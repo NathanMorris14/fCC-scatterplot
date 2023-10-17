@@ -28,9 +28,10 @@ let generateScales = () => {
                   .range([padding, w - padding]);
 
       yScale = d3.scaleLinear()
-                  .domain([d3.min(dataset, (item) => {
+                  
+                  .domain([d3.max(dataset, (item) => {
                      return new Date(item['Seconds'] * 1000)
-                  }), d3.max(dataset, (item) => {
+                  }), d3.min(dataset, (item) => {
                      return new Date(item['Seconds'] * 1000)
                   })])
                   .range([h - padding, padding]);
